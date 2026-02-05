@@ -18,6 +18,8 @@ git clone git@github.com:YourName/f27wd-coursework.git
 ### Update local main branch
 git checkout main
 
+git fetch upstream
+
 git pull origin main
 
 ### Create a new branch - EVERY task/feature
