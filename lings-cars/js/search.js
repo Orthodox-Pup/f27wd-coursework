@@ -87,5 +87,6 @@ function updateSearch() {
     }
     //returns the array
     return newSearchArray;
-
 }
+//THIS FUNCTION NEEDS TO BE CALLED INSIDE OF SEARCH.HTML!!!!
+export {updateSearch}
