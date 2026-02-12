@@ -7,6 +7,7 @@ const sortOrderField = document.getElementById("search-sort-order");
 const makeField = document.getElementById("search-make-field");
 const modelField = document.getElementById("search-model-field");
 const styleField = document.getElementById("search-style-field");
+const leaseField = document.getElementById('search-lease-field');
 
 //initial variable set
 var sortBy = sortField.value;
@@ -14,6 +15,7 @@ var sortOrder = sortOrderField.value;
 var make = makeField.value;
 var model = modelField.value;
 var bodyStyle = styleField.value;
+var lease = leaseField.value;
 
 // listeners which check for when someone updates the box
 sortField.addEventListener("change", () => {
@@ -43,6 +45,12 @@ modelField.addEventListener("input", () => {
 styleField.addEventListener("change", () => {
   bodyStyle = styleField.value;
   console.log("Style Updated")
+  updateSearch();
+});
+
+leaseField.addEventListener("change", () => {
+  lease = leaseField.value;
+  console.log("Lease Updated")
   updateSearch();
 });
 
@@ -84,6 +92,10 @@ function updateSearch() {
         }
 
         if (bodyStyle != "all" && (newSearchArray[i].bodystyle != bodyStyle)) {
+            removeThis = true;
+        }
+        console.log(lease);
+        if (lease != "all" && (newSearchArray[i].leaseType != lease)){
             removeThis = true;
         }
         if (removeThis == true) {
@@ -135,8 +147,6 @@ function displayVehicles(vehiclesToDisplay) {
         //image
         //I DO NOT KNOW HOW THIS FUNCTIONS, BUT IT DOES!
         const imageComponent = document.createElement('img');
-        console.log(vehiclesToDisplay[i].imgURL);
-        console.log(vehiclesToDisplay[i]);
         imageComponent.src = vehiclesToDisplay[i].imgURL;
 
         var imageDiv = document.createElement('div');
